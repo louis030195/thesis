@@ -1,0 +1,132 @@
+\documentclass[a4paper,11pt]{report}
+
+%% subsubsubsection (\paragraph{})
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+% Packages
+\renewcommand{\baselinestretch}{1.5} 
+% \renewcommand{\listfigurename}{List of plots} % Want to change "List of Figures" title ?
+% \renewcommand{\listtablename}{Tables} % List of table ?
+\usepackage{multirow} % Multi row row
+\usepackage{fontspec}
+\setmainfont[Path=calibri/,
+    BoldItalicFont=calibriz.ttf,
+    BoldFont      =calibrib.ttf,
+    ItalicFont    =calibrii.ttf]{calibri.ttf}
+\usepackage[english]{babel}
+\addto\captionsenglish{% To change CONTENT title
+  \renewcommand{\contentsname}%
+    {TABLE OF CONTENTS}%
+}
+
+% Code
+\usepackage{listings}
+
+% Math
+\usepackage{amsmath}
+
+%% Images
+\usepackage{graphicx} % Display images
+\usepackage{float} % Image prositions
+\graphicspath{ {images/} } % Path of the images folder
+\usepackage{caption}
+\usepackage{subcaption}
+%%%%%%%%%
+
+\usepackage{fancyhdr} % Header & footer
+\usepackage{vmargin}
+\usepackage{acronym} % list of abbreviations / acronyms
+\usepackage{url} % Put urls
+\usepackage{titlesec}
+\usepackage{verbatim} % Multiline comment
+\usepackage[export]{adjustbox} % Align images right / left
+\usepackage[hidelinks]{hyperref} % Allow to click on citation
+\hypersetup{ % Links style
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Disable auto indent
+\setlength{\parindent}{0pt}
+
+% Margins
+\setmarginsrb{2.5 cm}{2.5 cm}{2.5 cm}{2.5 cm}{1 cm}{1 cm}{1 cm}{1 cm}
+%1 left
+%2 top
+%3 right
+%4 bottom
+%5 header
+%6 header and text
+%7 footer
+%8 footer and text
+
+\title{\textsc{Cloud Computer Vision for Wildlife Monitoring}}
+\author{\textsc{25313} - \textsc{2019}} % \textsc{Louis} \textsc{Beaumont}
+\date{\today}
+
+% Main variables
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{Cloud Computer Vision for Wildlife Monitoring}
+\cfoot{\thepage}
+
+% Remove "Chapter N"
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Large}
+\includeonly{title,acknowledgements,resume,abstract,introduction,computer-vision,related,implementation,future,automation,conclusion}
+\begin{document}
+
+\include{title} % Cover
+
+\chapter*{} % Epigraph
+When the first humans reached Australia about 45,000 years ago, they quickly drove to extinction 90\% of its large animals. This was the first significant impact that Homo sapiens had on the planet's ecosystem. It was not the last.
+
+
+― Yuval Noah Harari
+
+\include{acknowledgements}
+
+\include{resume} % abstract in french ?
+
+\include{abstract} % Whats this thing about in 1 page
+
+\tableofcontents
+
+% \listoftables
+
+\listoffigures % List of figures ...
+
+\include{introduction}
+
+\include{computer-vision}
+
+\include{related} 
+
+\include{implementation}
+
+\include{future}
+
+\include{conclusion}
+
+\bibliographystyle{unsrt}
+\bibliography{sample} % File name
+
+
+\end{document}

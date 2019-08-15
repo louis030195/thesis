@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+
+The present work is intended, as far as possible, to give an insight into the process of automating cognitive task in the cloud to those readers who, from a general scientific and philosophical point of view, are interested in the field of artificial intelligence and ecology.
+
+%% l’importance du sujet, pourquoi le sujet traité est-il intéressant ? ;
+As the planet changes due to urbanization and climate change, biodiversity in the world is declining. We are currently witnessing an estimate of the increasing rate of species loss 200 times more than historical rates\cite{cop21_1}. 
+
+The Earth's biodiversity is rapidly changing in what may be considered as one of the largest environmental challenges of our time.
+
+For example, there is no doubt that in 2040 approximately one-third of all living species will be in the range of mammals living in the world today. How much of these new species will become endangered is unclear, and it might be impossible to assess exactly because there are still so many unknowns about the changes in our planet at large. There is no good data to guide us to any prediction for how our species will recover from the loss of species and how many we will need to lose to sustain human population growth of current levels.
+
+At least for now, ecologists and volunteers are trying to collect such data but they spend a huge amount of time manually identifying species in images, in this era of digitization, something can be done.
+
+Indeed, recent pattern recognition techniques allow computers to understand the semantics of images, allowing the automation of this cognitive task.
+
+%% l’actualité du sujet : le sujet du mémoire possède souvent un lien avec l’actualité qu’il est recommandé de rappeler pour mieux justifier l’intérêt que vous lui portez
+This subject is important, first, it has high practical relevance. The amount of time gained by automatizing manual labours is tremendous. Second, this study can be beneficial to the theory building in the emerging research field of deep learning and especially in the area of computer vision.
+
+Furthermore, this work can be valuable for those interested in the field of big data and cloud computing, which grant an easy access to deploying, scaling and maintaining automated tasks.
+
+%% les différents aspects du sujet : un sujet comporte toujours plusieurs dimensions (économiques, culturelles…). Il convient de préciser les différentes facettes du thème traité afin de montrer que vous avez bien compris la globalité du sujet, tout en précisant les aspects traités comme les non-traités ;
+This work includes several dimensions: 
+\begin{itemize}
+    \item Ecology: the balance of living being survival
+    \item Artificial intelligence
+    \item Big data \& cloud computing
+\end{itemize}
+
+%% l’objectif du mémoire : la finalité de votre travail ;
+We propose an architecture that is easy to deploy, use, maintain and price entirely in the cloud, allowing wildlife monitoring through concrete data visualisations.
+
+Through this thesis, the answer to this question will be given:
+
+\begin{it}  
+How to automatize and scale wildlife monitoring using cloud computer vision ?
+\end{it}
+
+%% la méthodologie de travail : comment les informations ou données ont été collectées et analysées ;
+
+%% la justification du plan : pourquoi vous avez choisi tel mode d’organisation des parties de votre mémoire plutôt qu’un autre ;
+In this thesis, we first introduce the collaborators of this projects such as the ONCFS and CNRS.
+
+Secondly, a short explanation of computer vision is stated.
+
+We then mention the related work on computer vision and wildlife monitoring, especially the datasets available and existing algorithms.
+
+Finally, the implementation done and the future possible work will be presented.
+
+The answer to the problematic will then be discussed, followed by a conclusion.
+
+
+
+
+\pagebreak\section{ONCFS}
+the French National Office for Hunting and Wildlife aims to safeguard and sustainably manage wildlife and its habitats.
+A public institution under the dual supervision of the Ministries of Ecology and Agriculture, the National Hunting and Wildlife Office fulfils five main missions responding to the main lines of the last Environmental Conference, following the Grenelle de l'Environnement:
+
+territorial surveillance and the environment and hunting police,
+studies and research on wildlife and its habitats,
+technical support and advice to administrations, local authorities, managers and spatial planners,
+the evolution of hunting practices in accordance with the principles of sustainable development and the development of environmentally friendly rural land management practices,
+the organization of the examination and the issuance of the hunting permit. 
+The ONCFS in a few figures
+Created in 1972, the Office has a budget of 120 million euros to carry out its missions throughout the country (metropolitan France and the French overseas departments). 
+
+1,700 people working for biodiversity:
+\begin{itemize}
+  \item 1,000 Environmental Technical Agents, commissioned by the Ministry in charge of sustainable development, divided into Departmental Services and Mobile Intervention Brigades
+  \item 350 Environmental Technicians, also commissioned, assigned to Departmental Services (supervision), Inter-Regional Delegations and the various departments
+  \item 70 engineers and technicians, grouped in five C.N.E.R.A. specialized in a group of species: migratory birds, deer and wild boars, mountain fauna, small sedentary plain fauna, predators and predatory animals.
+  \item 80 technical managers
+  \item 156 administrative staff
+  \item 30 workers involved in the management of the domains and reserves managed or co-managed by the Office.
+  \item 25 hunting licence inspectors
+  \item 6 departments, in support of the Director General, implement the institution's action in their areas of competence
+  \item 10 Inter-Regional Delegations - 90 Departmental Services
+  \item 1 Board of Directors
+  \item 1 Scientific Council
+  \item 27 wildlife reserves, totalling nearly 60,000 hectares of protected areas that allow the ONCFS to carry out studies and experiments.
+\end{itemize}
+
+ONCFS brought useful information about camera-trap context, the animals monitored and provided a set of videos and images of camera-trap taken lynxes and wolves.
+
+ONCFS could gain a lot of time from the solution presented in this thesis, without losing any accuracy compared to human-level animal detection.
+
+\pagebreak\section{CNRS}
+
+The Centre national de la recherche scientifique, better known by the acronym CNRS, is the largest French public scientific research organisation. Legally, it is a public scientific and technological institution (EPST) under the administrative supervision of the Ministry of Higher Education, Research and Innovation.
+
+Founded by the Decree-Law of 19 October 19391, in order to "coordinate the activity of laboratories in order to obtain a higher return from scientific research", the CNRS was reorganized after the Second World War and then moved clearly towards fundamental research.
+
+The CNRS operates in all fields of knowledge through a thousand accredited research and service units, most of which are managed with other structures (universities, other EPSTs, grandes écoles, industries, etc.) for five years in the administrative form of "mixed research units".
+
+
+The CNRS was created on 19 October 1939, following the merger between an agency of resources, the Caisse nationale de la recherche scientifique and a major institution of laboratories and researchers, the Centre national de la recherche scientifique appliquée.
+
+This merger was prepared by Jean Zay with the help of the Under-Secretaries of State for Research Irene Joliot-Curie and Jean Perrin. The decree organizing the CNRS is signed by the current President of the Republic, Albert Lebrun, the President of the Council, Édouard Daladier, the Minister of National Education, Yvon Delbos, succeeding Jean Zay, and the Minister of Finance, Paul Reynaud. The creation of the CNRS was intended to "coordinate the activity of laboratories in order to obtain a higher return from scientific research" and, in the words of Jean-François Picard, to "merge it into a single body, in a way the logical outcome of scientific and centralizing Jacobinism".
+
+Fusion was encouraged by the Second World War: the French authorities, not wishing to reproduce the mistakes made during the First World War (all the scientists had been mobilized, often as executives in the infantry or artillery, which led to the disappearance of a high proportion of young scientists), assigned researchers to the CNRS. This merger therefore did not attract any press coverage. At the beginning, part of the research was conducted for the needs of the French army. Threatened by the Vichy Regime, which finally maintained it and confirmed geologist Charles Jacob6 at its head, the CNRS was reorganized at the Liberation. Frédéric Joliot-Curie was appointed director and provided him with new research grants.
+
+De Gaulle's arrival in power in 1958 opened a period described as the "golden age of scientific research" and the CNRS: the CNRS' budget doubled between 1959 and 19628.
+
+In 1966, associated units were created, ancestors of the UMRs. These are university laboratories, supported by the CNRS, thanks to its human and financial resources. In 1967, the National Institute of Astronomy and Geophysics was founded, which in 1985 became the National Institute of Universe Sciences (INSU). The National Institute for Nuclear and Particle Physics (IN2P3) was established in 1971.
+
+In the 1970s, there was a change from science to society: the CNRS wondered about its ambition and its modes of action. The first interdisciplinary programmes are launched and global contracts with industry are signed (the first with Rhône-Poulenc in 1975).
+
+In 1982, the law of 15 July, known as the Chevènement de programmation des moyens de la recherche publique law, decreed that research personnel, technical and administrative engineers and administrative staff are to be transferred to the civil service: they become civil servants, with, for researchers, a status similar to that of lecturers and university professors.
+
+According to a survey conducted in 2009 by Sofres for Sciences Po, the CNRS enjoyed a 90\% level of trust among the French, well before the police (71\%), the Government (31\%), the President of the Republic (35\%) or political parties (23\%), and second only after the family (97\%).
+
+The CNRS of Montpellier has been of great help, both in terms of additional information for cameras, but also in terms of research in the field of ecology and the kind of data that could potentially interest them...
