@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{report}
+
+%% subsubsubsection (\paragraph{})
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+% Packages
+\usepackage[table,xcdraw]{xcolor}
+\renewcommand{\baselinestretch}{1.5} 
+% \renewcommand{\listfigurename}{List of plots} % Want to change "List of Figures" title ?
+% \renewcommand{\listtablename}{Tables} % List of table ?
+\usepackage{multirow} % Multi row row
+\usepackage{fontspec}
+\setmainfont[Path=calibri/,
+    BoldItalicFont=calibriz.ttf,
+    BoldFont      =calibrib.ttf,
+    ItalicFont    =calibrii.ttf]{calibri.ttf}
+\usepackage[english]{babel}
+\addto\captionsenglish{% To change CONTENT title
+  \renewcommand{\contentsname}%
+    {TABLE OF CONTENTS}%
+}
+
+% Code
+\usepackage{listings}
+
+% Math
+\usepackage{amsmath}
+
+%% Images
+\usepackage{graphicx} % Display images
+\usepackage{float} % Image prositions
+\graphicspath{ {images/} } % Path of the images folder
+\usepackage{caption}
+\usepackage{subcaption}
+%%%%%%%%%
+
+\usepackage{fancyhdr} % Header & footer
+\usepackage{vmargin}
+\usepackage{acronym} % list of abbreviations / acronyms
+\usepackage{url} % Put urls
+\usepackage{titlesec}
+\usepackage{verbatim} % Multiline comment
+\usepackage[export]{adjustbox} % Align images right / left
+\usepackage[hidelinks]{hyperref} % Allow to click on citation
+\hypersetup{ % Links style
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Disable auto indent
+\setlength{\parindent}{0pt}
+
+% Margins
+\setmarginsrb{2.5 cm}{2.5 cm}{2.5 cm}{2.5 cm}{1 cm}{1 cm}{1 cm}{1 cm}
+%1 left
+%2 top
+%3 right
+%4 bottom
+%5 header
+%6 header and text
+%7 footer
+%8 footer and text
+
+\title{\textsc{Cloud Computer Vision for Wildlife Monitoring}} % Easy to deploy, maintain, scale, price
+\author{\textsc{25313} - \textsc{2019}}
+\date{\today}
+
+% Main variables
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+% Header & Footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{Cloud Computer Vision for Wildlife Monitoring}
+\cfoot{\thepage}
+
+% Remove "Chapter N"
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Large}
+
+\begin{document}
+
+\include{title} % Cover
+
+\tableofcontents
+
+\chapter{Productions}
+\section{Initial project}
+\subsection{Description \& Link}
+Initial project that uses Tensorflow Models as a git submodule. A script takes as argument a path, it will search for all images
+and videos there, will output:
+\begin{itemize}
+    \item For each species
+    \begin{itemize}
+        \item Occurences
+    \end{itemize}
+\end{itemize}
+
+\url{https://github.com/louis030195/vision_api}
+
+\pagebreak\section{Main project}
+\subsection{Description \& Link}
+\begin{itemize}
+    \item Computer vision pipeline runnable on Google Cloud Platform.
+    \item Easy to deploy
+    \item Easy to maintain
+    \item Easy to scale
+    \item Easy to price
+    \item The readme file include full instructions to install it and much more information. Multiple Dockerfiles to ready-to-deploy environment, Gitpod one-click ready-to-code container.
+\end{itemize}
+
+\url{https://github.com/louis030195/vision-client}
+
+\pagebreak\section{Microsoft CameraTrap contribution}
+\subsection{Description \& Link}
+Full Google Colaboratory notebook detailed showing an example usage of their tools and especially on wolves and lynxes It uses Google Image API to query for random images about camera trap animals, therefore close to real context.
+
+\url{https://github.com/microsoft/CameraTraps/pull/68}
+
+\pagebreak\section{Tensorflow Models fork}
+\subsection{Description \& Link}
+Tensorflow Models fork to allow exporting with a key as input and output
+
+(indispensable for AI Platform batch predictions, may be useful for Tensorflow-serving apps)
+
+Will probably be sent as a pull request once the code is cleaned.
+
+\url{https://github.com/louis030195/models}
+
+\pagebreak\section{Google Colaboratory notebook to modify, exchange and test an object detection graph}
+\subsection{Description \& Link}
+
+\url{https://colab.research.google.com/drive/1CZxrvowmuzwfJJoUBjgIjsIpb-1gh53h}
+
+\pagebreak\section{Google Colaboratory notebook - Annotations mapping}
+\subsection{Description \& Link}
+Google Colaboratory notebook to pull annotations mapping from Tensorflow Dataset and push it into Datastore Class entity
+
+\url{https://colab.research.google.com/drive/1JLJt4tUXNgeuq3Y9PPvZitBS2B7J7Ker}
+
+\pagebreak\section{Thesis source code}
+\subsection{Description \& Link}
+\LaTeX written thesis
+\url{https://github.com/louis030195/thesis}
+
+\end{document}
