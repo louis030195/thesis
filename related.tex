@@ -1,4 +1,3 @@
-% This part is more about the hardware to capture data imo
 \chapter{Related work}
 \section{Object classification}
 An example of object classification is whether, for a given image, if there is a cat or not in the image.
@@ -69,9 +68,6 @@ IoU is given by the overlapping area between the predicted bounding box and the 
 
 IoU is a value between 0 and 1, which corresponds to the overlap zone between the predicted zone and the truth zone on the ground. The higher the IoU value, the better the intended location of the box for a given object. Usually, we keep all candidates in the bounding box with an IoU above a threshold.
 
-
-% Copy pasted from 
-% https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#nms-non-maximum-suppression
 \pagebreak\paragraph{mean Average Precision (mAP)}
 
 A common metric which is used for the Pascal VOC object recognition challenge is to measure the Average Precision (AP) for each class. The following description of Average Precision is taken from Everingham et. al.\footnote{\href{http://homepages.inf.ed.ac.uk/ckiw/postscript/ijcv_voc09.pdf}{Source}}
@@ -181,7 +177,6 @@ In simple terms, the R-FCN examines each region proposal, dividing it into sub-r
 For each sub-region, he asks: "Does it look like the left end of a baby?", "Does it look like the upper center of a baby?" "Does it look like a baby's top right?" etc. For all possible classes.  If enough sub-regions say "yes, I match up with a part of a baby", the RoI is classified as a baby after a softmax over all classes (see Figure ~\ref{fig:rfcnbaby}).
 
 
-% is it okay to copy paste the caption of the paper figure?
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.7]{rfcn2.png}
